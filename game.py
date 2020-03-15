@@ -222,6 +222,9 @@ class Driver:
 
 
     def on_undo(self):
+        if self.c_sel:
+            self.c_sel.sel = False
+            self.c_sel = None
         if self.undo_q:
             c1, mcell, c2 = self.undo_q.pop()
             c1.empty = False
@@ -230,6 +233,9 @@ class Driver:
             self.recount()
 
     def on_reset(self):
+        if self.c_sel:
+            self.c_sel.sel = False
+            self.c_sel = None
         for i in range(7):
             for j in range(7):
                 if self.board.cells[i][j]:

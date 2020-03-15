@@ -236,3 +236,4 @@ class Driver:
                     self.board.cells[i][j].empty = False
         self.board.cells[2][0].empty = True
         self.recount()
+        self.undo_q = []
